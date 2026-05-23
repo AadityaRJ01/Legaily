@@ -1,0 +1,568 @@
+:root {
+  --primary: #ff8c00;
+  --primary-light: #ffad42;
+  --primary-dark: #e67e00;
+  --border: #ffe6cc;
+  --gray-bg: #f8fafc;
+  --text-dark: #1a202c;
+  --text-light: #4a5568;
+}
+
+.docai-main {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 32px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(255, 140, 0, 0.08);
+  border: 1px solid var(--border);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+.docai-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: nowrap;
+  min-height: 48px;
+}
+
+.docai-upload-btn {
+  background: var(--primary);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  flex-shrink: 0;
+  min-width: 130px;
+  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.25);
+}
+
+.docai-upload-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 140, 0, 0.3);
+}
+
+.docai-selected-file {
+  color: #333;
+  font-size: 0.95rem;
+  min-width: 80px;
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-shrink: 1;
+}
+
+.docai-controls-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.docai-btn-group {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.docai-btn-group button {
+  background: var(--gray-bg);
+  border: 2px solid var(--border);
+  color: var(--text-dark);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.docai-btn-group button.active,
+.docai-btn-group button:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.docai-language-wrapper {
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.docai-language-select {
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 2px solid var(--border);
+  font-size: 1rem;
+  width: 100%;
+  min-width: 180px;
+  box-sizing: border-box;
+  background: #ffffff;
+  color: var(--text-dark);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.docai-language-select:focus {
+  border-color: var(--primary);
+}
+
+.docai-language-select:disabled {
+  background: #f0f0f0;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.docai-get-answer {
+  background: var(--primary);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  min-width: 140px;
+  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.25);
+}
+
+.docai-get-answer:hover:not(:disabled) {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 140, 0, 0.3);
+}
+
+.docai-get-answer:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.docai-content {
+  display: flex;
+  gap: 32px;
+  margin-top: 18px;
+  min-height: 460px;
+}
+
+.docai-file-viewer {
+  flex: 1 1 0;
+  min-width: 340px;
+  width: 50%;
+  background: var(--gray-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 420px;
+  height: 420px;
+  justify-content: center;
+  padding: 18px;
+  overflow: hidden;
+}
+
+.docai-file-placeholder {
+  color: #aaa;
+  font-size: 1.2rem;
+}
+
+.docai-pdf-pagination {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.docai-pdf-pagination button {
+  background: #f6f6f6;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.docai-output-window {
+  flex: 1 1 0;
+  min-width: 340px;
+  width: 50%;
+  background: var(--gray-bg);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  min-height: 420px;
+  height: 420px;
+}
+
+.docai-output-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.docai-output-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+  color: #222;
+}
+
+.docai-download-pdf {
+  background: #10b981;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+}
+
+.docai-download-pdf:hover {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.3);
+}
+
+.docai-output-content {
+  background: #fff;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  padding: 14px;
+  flex: 1;
+  overflow-y: auto;
+  font-size: 1rem;
+  color: #333;
+}
+
+.docai-output-empty {
+  color: #888;
+}
+
+.docai-pdf-preview-box {
+  background: #fff;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.docai-pdf-paper {
+  background: #fff;
+  border: 1.5px solid #e6e6e6;
+  border-radius: 10px;
+  padding: 26px 26px 22px 26px;
+}
+
+.docai-pdf-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.docai-pdf-brand {
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  font-size: 1.2rem;
+  color: #111;
+}
+
+.docai-pdf-tag {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.docai-pdf-meta-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 6px 0 6px 0;
+}
+
+.docai-pdf-section-heading {
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #111;
+  margin: 8px 0 10px 0;
+}
+
+.docai-pdf-heading {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  color: #111;
+}
+
+.docai-pdf-meta {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 4px 0;
+}
+
+.docai-pdf-rule {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 12px 0;
+}
+
+.docai-pdf-body {
+  font-size: 1rem;
+  color: #222;
+}
+
+.docai-formatted-root {
+  line-height: 1.65;
+}
+
+.docai-formatted-root p {
+  margin: 0;
+}
+
+.docai-fmt-break {
+  height: 0.55em;
+  min-height: 0.55em;
+}
+
+.docai-fmt-divider {
+  border: none;
+  border-top: 1px solid #d0d0d0;
+  margin: 1rem 0;
+}
+
+.docai-fmt-heading {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 1.1em 0 0.5em 0;
+  padding-bottom: 0.35em;
+  border-bottom: 2px solid var(--primary);
+}
+
+.docai-fmt-subheading {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #222;
+  margin: 1em 0 0.4em 0;
+  letter-spacing: 0.02em;
+}
+
+.docai-fmt-para {
+  margin: 0 0 0.65em 0;
+  line-height: 1.65;
+}
+
+.docai-fmt-numbered {
+  margin: 0.35em 0;
+  padding-left: 0.75em;
+  line-height: 1.65;
+  border-left: 3px solid rgba(244, 123, 32, 0.35);
+}
+
+.docai-fmt-bullet {
+  margin: 0.3em 0;
+  padding-left: 1.1em;
+  position: relative;
+  line-height: 1.65;
+}
+
+.docai-fmt-bullet::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.docai-formatted-root strong {
+  font-weight: 700;
+  color: #111;
+}
+
+@media (max-width: 900px) {
+  .docai-actions {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .docai-controls-group {
+    margin-left: 0;
+    width: 100%;
+  }
+  .docai-selected-file {
+    max-width: 100%;
+  }
+  .docai-content {
+    flex-direction: column;
+    gap: 18px;
+  }
+  .docai-file-viewer,
+  .docai-output-window {
+    min-width: 0;
+    width: 100%;
+    min-height: 360px;
+    height: 360px;
+  }
+}
+/* Loading States */
+.docai-loading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+}
+
+.docai-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #f47b20;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error States */
+.docai-error {
+  color: #e74c3c;
+  padding: 1rem;
+  border: 1px solid #e74c3c;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+/* Output Header */
+.docai-output-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.docai-output-header button {
+  background: #f47b20;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+/* Chat Interface Styles */
+.docai-qa-section {
+  margin-top: 24px;
+  background: var(--gray-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.docai-qa-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--primary);
+  margin-bottom: 5px;
+}
+
+.docai-qa-hint {
+  font-size: 0.85rem;
+  color: #5a6a7a;
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+}
+
+.docai-qa-history {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.docai-qa-message {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  max-width: 90%;
+}
+
+.docai-qa-message.user {
+  background: var(--primary-light);
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 2px;
+}
+
+.docai-qa-message.assistant {
+  background: #f1f3f4;
+  color: #333;
+  align-self: flex-start;
+  border-bottom-left-radius: 2px;
+}
+
+.docai-qa-input-area {
+  display: flex;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.docai-qa-input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+.docai-qa-input:focus {
+  border-color: var(--primary);
+}
+
+.docai-qa-submit {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.docai-qa-submit:hover:not(:disabled) {
+  background: var(--primary-light);
+}
+
+.docai-qa-submit:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}

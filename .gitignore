@@ -1,0 +1,15 @@
+# Python 
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# IDEs
+.vscode/
+.idea/
+
+# Backend (if using Node)
+logs
+*.log
+npm-debug.log*

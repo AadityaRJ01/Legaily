@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+python-multipart
+pytesseract
+pdfplumber
+pillow
+cohere
+python-dotenv
+torch
+transformers
+rank_bm25
+faiss-cpu
+langchain-community
+langchain-huggingface
+langchain-text-splitters
+sentence-transformers
